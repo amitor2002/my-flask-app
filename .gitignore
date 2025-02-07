@@ -1,0 +1,15 @@
+
+# Python bytecode files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Docker files
+.docker/
+
+# IDE configuration files
+.idea/
+
+*.vscode/
