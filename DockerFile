@@ -1,0 +1,20 @@
+# Use an official Python runtime as a base image
+FROM python:3.9-slim  # Selects the official slim Python 3.9 image as the base
+
+# Set the working directory in the container
+WORKDIR /app  # Sets the working directory for any following commands to /app inside the container
+
+# Copy the requirements.txt file into the container
+COPY requirements.txt .  # Copies the requirements.txt from the local machine to the /app directory in the container
+
+# Install the dependencies listed in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt  # Installs the Python packages from the requirements.txt inside the container
+
+# Copy the rest of the application code into the container
+COPY . .  # Copies all the files from the local directory to the container's /app directory
+
+# Expose port 5000 for the Flask app to be accessible outside the container
+EXPOSE 5000  # Makes port 5000 available to connect to the app running in the container
+
+# Run the Flask app when the container starts
+CMD ["python", "app.py"]  # Defines the default command to run the Flask app when the container starts

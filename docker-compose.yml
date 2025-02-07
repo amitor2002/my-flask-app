@@ -1,0 +1,12 @@
+
+
+version: '3'  # The version of Docker Compose you're using (version 3 is most commonly used)
+
+services:  # Define the services (containers) you want to run
+  web:  # Name of the service (in this case, your application service)
+    build: .  # Build the Docker image from the Dockerfile in the current directory
+    ports:  
+      - "5000:5000"  # Exposes port 5000 on the host machine and maps it to port 5000 in the container (to access the app)
+    environment:  # Define environment variables for the container
+      - FLASK_ENV=development  # Set the Flask environment variable to development mode (for debugging)
+
